@@ -46,7 +46,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://placehold.co/1920x1080/0A1F3D/E0E7FF?text=Banner+Dia+Padre') center/cover no-repeat; /* Imagen de fondo */
+    background: url('img/fondo.png') center/cover no-repeat; /* Imagen de fondo */
     opacity: 0.3; /* Menos opacidad para el efecto */
     z-index: 0;
 }
