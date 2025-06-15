@@ -1,0 +1,340 @@
+/* Reset y variables */
+:root {
+    --primary-bg: #05112b;
+    --overlay-bg: rgba(5, 17, 43, 0.7);
+    --accent: #a5b4fc; /* Un azul más suave para el acento */
+    --card-bg: #0e213c;
+    --text-light: #e0e7ff;
+    --text-secondary: #94a3b8;
+    --border-accent: #3b5998;
+    --gradient-start: #2a6190; /* Nuevo color para gradiente */
+    --gradient-end: #0a1f3d; /* Nuevo color para gradiente */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Usando Inter como solicitado */
+    background: var(--primary-bg);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evitar scroll horizontal */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); /* Gradiente de fondo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 5px solid var(--border-accent);
+    overflow: hidden; /* Para contener las partículas */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://placehold.co/1920x1080/0A1F3D/E0E7FF?text=Banner+Dia+Padre') center/cover no-repeat; /* Imagen de fondo */
+    opacity: 0.3; /* Menos opacidad para el efecto */
+    z-index: 0;
+}
+
+.hero .overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--overlay-bg);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 1rem;
+}
+
+.hero h1 {
+    font-size: 3.8rem; /* Tamaño de fuente más grande */
+    margin-bottom: 0.8rem;
+    color: #ffffff; /* Blanco para contraste */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    font-weight: 700; /* Más negrita */
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 1.8rem; /* Tamaño de fuente más grande */
+    color: var(--text-light);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.hero .subtitle {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin-top: 1rem;
+    line-height: 1.5;
+}
+
+/* Particle effect for hero section */
+.particle {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: moveParticles 15s infinite ease-in-out;
+    opacity: 0;
+    z-index: 1;
+}
+
+@keyframes moveParticles {
+    0% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    50% {
+        transform: translate(50vw, 50vh) scale(1.5);
+        opacity: 0.5;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100vw, 100vh) scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* Introductory Section */
+.intro {
+    background: var(--card-bg);
+    border-bottom: 3px solid var(--accent);
+    padding: 4rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro .icon {
+    font-size: 3rem;
+    color: #f7d08a; /* Un color dorado para el icono */
+    margin-bottom: 1rem;
+}
+
+.intro h2 {
+    font-size: 2.5rem; /* Tamaño de fuente más grande */
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.intro p {
+    font-size: 1.3rem; /* Tamaño de fuente más grande */
+    max-width: 800px;
+    margin: 0 auto 1.5rem auto;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.intro .cta-button {
+    display: inline-block;
+    background: #4a69bd; /* Un azul más vibrante */
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.intro .cta-button:hover {
+    background: #3b5998;
+    transform: translateY(-3px);
+}
+
+/* Gallery Section */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    background: var(--primary-bg);
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 2px solid var(--border-accent);
+    max-width: 320px; /* Ancho un poco más grande */
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Asegurar que las esquinas redondeadas se vean bien */
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.9);
+}
+
+.card img {
+    width: 100%;
+    height: 250px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Recortar si es necesario */
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 2px solid var(--accent); /* Borde en la imagen */
+}
+
+.card p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Final Message Section */
+.message {
+    background: var(--card-bg);
+    border-radius: 20px;
+    max-width: 800px; /* Ancho un poco más grande */
+    margin: 4rem auto; /* Más margen arriba y abajo */
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    border-top: 3px solid var(--accent);
+    position: relative; /* Para el efecto de la cinta */
+}
+
+.message::before {
+    content: '❤️';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    color: #ff6b6b; /* Un rojo más vibrante */
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+
+.message h2 {
+    font-size: 2.2rem; /* Tamaño de fuente más grande */
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.message p {
+    font-size: 1.2rem; /* Tamaño de fuente más grande */
+    line-height: 1.8;
+    color: var(--text-light);
+    white-space: pre-wrap; /* Para mantener los saltos de línea del HTML */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    border-top: 2px solid var(--border-accent);
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .intro h2 {
+        font-size: 2rem;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+
+    .message h2 {
+        font-size: 1.8rem;
+    }
+
+    .message p {
+        font-size: 1rem;
+    }
+
+    .gallery {
+        gap: 1.5rem;
+    }
+
+    .card {
+        max-width: 90%; /* Ocupar casi todo el ancho en móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+    .intro h2 {
+        font-size: 1.5rem;
+    }
+    .intro p {
+        font-size: 0.9rem;
+    }
+    .card {
+        padding: 1rem;
+    }
+    .card img {
+        height: 200px;
+    }
+    .card p {
+        font-size: 0.9rem;
+    }
+    .message h2 {
+        font-size: 1.5rem;
+    }
+    .message p {
+        font-size: 0.9rem;
+    }
+}
